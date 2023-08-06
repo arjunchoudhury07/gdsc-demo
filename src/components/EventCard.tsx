@@ -2,11 +2,11 @@ import Image from "next/image";
 import React from "react";
 
 type Props = {
-  image: any;
-  date: String;
-  title: String;
-  content: String;
-  url: String;
+  image: string;
+  date: string;
+  title: string;
+  content: string;
+  url: string;
 };
 
 const EventCard = ({ image, title, date, content, url }: Props) => {
@@ -17,7 +17,7 @@ const EventCard = ({ image, title, date, content, url }: Props) => {
           height={100}
           width={100}
           className="h-56 w-full rounded-t-lg object-cover"
-          src={image}
+          src={image ?? ""}
           alt=""
         />
       </a>

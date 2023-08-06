@@ -4,16 +4,16 @@ import React, { useState } from "react";
 Image;
 
 function Navbar() {
-  let Links = [
+  const Links = [
     { name: "HOME", link: "/" },
     { name: "ABOUT", link: "/about" },
     { name: "COMMUNITY", link: "/community" },
     { name: "EVENTS", link: "/events" },
     { name: "CONTACT US", link: "/contact" },
   ];
-  let [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   return (
-    <div className="sticky top-0 border-b-[1px] border-zinc-200 bg-white">
+    <div className="sticky top-0  z-50 border-b-[1px] border-zinc-200 bg-white">
       <div className=" mx-auto flex h-16 max-w-7xl items-center px-4 py-10 md:px-0">
         <Link href="/" className="flex-1 pr-12">
           <Image alt="logo" src="/GDSC_logo.png" height={400} width={400} />
@@ -31,9 +31,9 @@ function Navbar() {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               ></path>
             </svg>
           ) : (
@@ -59,9 +59,13 @@ function Navbar() {
             open ? "top-14" : "top-[-490px]"
           }`}
         >
-          {Links.map((link) => (
-            <li className="flex justify-center text-xl font-semibold md:my-0 md:ml-14">
+          {Links.map((link, index) => (
+            <li
+              key={index}
+              className="flex justify-center text-xl font-semibold md:my-0 md:ml-14"
+            >
               <Link
+                key={index}
                 onClick={() => setOpen((prev) => !prev)}
                 href={link.link}
                 className="text-zinc-600 duration-200 hover:text-zinc-800"

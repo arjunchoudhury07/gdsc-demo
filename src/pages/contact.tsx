@@ -1,15 +1,31 @@
 "use client";
 import Link from "next/link";
-import React from "react";
-import { useForm } from "react-hook-form";
+import React, { useEffect } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+
+type Data = {
+  firstname: string;
+  lastname: string;
+  email: string;
+  message: string;
+};
 
 function ContactUs() {
   const {
     register,
     handleSubmit,
+    resetField,
     formState: { errors, isSubmitSuccessful, isSubmitting },
-  } = useForm();
-  const onSubmit = (data: any) => console.log(data);
+  } = useForm<Data>();
+  const onSubmit: SubmitHandler<Data> = (data) => {
+    console.log(data);
+  };
+  useEffect(() => {
+    resetField("email");
+    resetField("firstname");
+    resetField("lastname");
+    resetField("message");
+  }, [isSubmitSuccessful]);
   return (
     <div className="flex min-h-[70vh] w-screen flex-col items-center justify-center">
       <h2 className="p-10 text-center text-5xl text-zinc-600">Contact Us</h2>
@@ -64,14 +80,14 @@ function ContactUs() {
         {/* form start */}
         <div className="flex w-full flex-col items-center justify-center py-10 text-zinc-600 xl:w-1/2">
           <div className="flex flex-col items-center text-red-600">
-            <div>{errors.firstname && errors.firstname.message}</div>
+            {/* <div>{errors.firstname && errors.firstname.message}</div>
             <div>{errors.lastname && errors.lastname.message}</div>
             <div>{errors.email && errors.email.message}</div>
-            <div>{errors.message && errors.message.message}</div>
+            <div>{errors.message && errors.message.message}</div> */}
           </div>
 
           <form
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={(e) => void handleSubmit(onSubmit)}
             className="flex w-full flex-col gap-y-4 "
           >
             <div className="grid md:grid-cols-2 md:gap-6">
@@ -137,8 +153,8 @@ function ContactUs() {
                 maxLength: 200,
               })}
               id="message"
-              rows="6"
-              class="block w-full rounded-md bg-zinc-600 bg-opacity-10 p-2.5 text-sm"
+              rows={6}
+              className="block w-full rounded-md bg-zinc-600 bg-opacity-10 p-2.5 text-sm"
               placeholder="Write your thoughts here..."
             ></textarea>
             <button
@@ -146,7 +162,7 @@ function ContactUs() {
               type="submit"
               className="mt-4 w-full rounded-lg bg-zinc-600 px-5 py-2.5 text-center text-xl font-medium text-white hover:bg-[#1a5171] focus:outline-none focus:ring-4 focus:ring-blue-300 sm:w-auto"
             >
-              Send
+              {!isSubmitting ? "Send" : "Sending..."}
             </button>
           </form>
           {isSubmitSuccessful && (

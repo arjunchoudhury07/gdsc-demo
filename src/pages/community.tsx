@@ -1,8 +1,6 @@
 import React from "react";
 
-type Props = {};
-
-function community({}: Props) {
+function community() {
   return <div>community</div>;
 }
 

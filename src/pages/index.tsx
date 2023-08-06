@@ -1,7 +1,7 @@
 import Events from "@/components/Events";
 import Hero from "@/components/Hero";
 import Head from "next/head";
-import Link from "next/link";
+
 export default function Home() {
   return (
     <>

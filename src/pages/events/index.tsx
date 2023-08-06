@@ -1,9 +1,7 @@
 import EventCard from "@/components/EventCard";
 import React from "react";
 
-type Props = {};
-
-function index({}: Props) {
+function index() {
   const data = [
     {
       image:
@@ -44,8 +42,9 @@ function index({}: Props) {
         PAST EVENTS
       </h1>
       <div className="flex max-w-7xl flex-col flex-wrap items-center  justify-center gap-10 py-10 lg:flex-row">
-        {data?.map((event) => (
+        {data?.map((event, index) => (
           <EventCard
+            key={index}
             image={event.image}
             title={event.title}
             url={event.url}
