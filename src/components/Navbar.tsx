@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 Image;
 
 function Navbar() {
+  const router = useRouter();
   const Links = [
     { name: "HOME", link: "/" },
     { name: "ABOUT", link: "/about" },
@@ -62,13 +64,13 @@ function Navbar() {
           {Links.map((link, index) => (
             <div
               key={index}
-              className="flex justify-center text-lg font-semibold md:my-0 md:ml-12 xl:text-xl"
+              className={`flex justify-center text-lg font-semibold text-zinc-600 underline-offset-4 duration-200 hover:text-blue-800 hover:underline md:my-0 md:ml-12 xl:text-xl`}
             >
               <Link
                 key={index}
                 onClick={() => setOpen((prev) => !prev)}
                 href={link.link}
-                className="text-zinc-600 duration-200 hover:text-zinc-800"
+                className=""
               >
                 {link.name}
               </Link>
@@ -76,6 +78,7 @@ function Navbar() {
           ))}
           <Link
             href="/sign-up"
+            onClick={() => setOpen((prev) => !prev)}
             className="rounded-lg bg-gradient-to-tr from-blue-500 to-green-500 px-5 py-3 text-lg font-bold text-white md:ml-12"
           >
             <p>Register Now</p>
