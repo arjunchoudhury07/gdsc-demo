@@ -13,8 +13,8 @@ function Navbar() {
   ];
   const [open, setOpen] = useState(false);
   return (
-    <div className="sticky top-0  z-50 border-b-[1px] border-zinc-200 bg-white">
-      <div className=" mx-auto flex h-16 max-w-7xl items-center px-4 py-10 md:px-0">
+    <div className="sticky top-0 z-50 border-b-[1px] border-zinc-200 bg-white">
+      <div className=" mx-auto flex h-16 max-w-[85rem] items-center px-4 py-10 md:px-0">
         <Link href="/" className="flex-1 pr-12">
           <Image alt="logo" src="/GDSC_logo.png" height={400} width={400} />
         </Link>
@@ -54,15 +54,15 @@ function Navbar() {
           )}
         </div>
         {/* linke items */}
-        <ul
-          className={`absolute left-0 z-50 flex w-full flex-col gap-y-10 bg-white py-20 transition-all duration-300 ease-in md:static md:w-auto   md:flex-row md:items-center md:py-0 ${
+        <div
+          className={`absolute left-0 z-40 flex w-full flex-col items-center gap-y-10 bg-white py-16 transition-all duration-300 ease-in md:static md:w-auto   md:flex-row md:items-center md:py-0 ${
             open ? "top-14" : "top-[-490px]"
           }`}
         >
           {Links.map((link, index) => (
-            <li
+            <div
               key={index}
-              className="flex justify-center text-xl font-semibold md:my-0 md:ml-14"
+              className="flex justify-center text-lg font-semibold md:my-0 md:ml-12 xl:text-xl"
             >
               <Link
                 key={index}
@@ -72,9 +72,15 @@ function Navbar() {
               >
                 {link.name}
               </Link>
-            </li>
+            </div>
           ))}
-        </ul>
+          <Link
+            href="/sign-up"
+            className="rounded-lg bg-gradient-to-tr from-blue-500 to-green-500 px-5 py-3 text-lg font-bold text-white md:ml-12"
+          >
+            <p>Register Now</p>
+          </Link>
+        </div>
       </div>
     </div>
   );

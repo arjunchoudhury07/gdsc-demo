@@ -5,7 +5,7 @@ import React from "react";
 const Hero = () => {
   return (
     <>
-      <div className="absolute bottom-16 left-28 -z-10 hidden h-96 w-96 animate-ping rounded-full bg-blue-400 opacity-40 blur-3xl sm:block" />
+      <div className="absolute bottom-16 left-36 -z-10 hidden h-96 w-96 animate-ping rounded-full bg-blue-400 opacity-40 blur-3xl sm:block" />
       <div className="absolute right-28 top-10 -z-10 hidden h-96 w-96 rounded-full bg-green-400 opacity-40 blur-3xl sm:block" />
 
       <main className="relative mx-auto flex min-h-[80vh] max-w-7xl flex-col items-center p-5 py-8 lg:flex-row 2xl:p-0">
@@ -34,10 +34,10 @@ const Hero = () => {
           </div>
           <div className="flex flex-col items-center gap-4 pt-5 lg:flex-row lg:p-0">
             <Link
-              href="/about"
+              href="/joinnow"
               className="flex items-center justify-center rounded-full bg-gradient-to-tr from-blue-500 to-green-500 py-5 pl-9 pr-6 text-lg font-bold text-white"
             >
-              <p className="pb-1">Learn More</p>
+              <p className="">Join Now</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -53,8 +53,11 @@ const Hero = () => {
                 <path d="m9 18 6-6-6-6" />
               </svg>
             </Link>
-            <button className=" flex items-center justify-center rounded-full bg-gradient-to-tr from-blue-500 to-green-500  bg-clip-text py-4 pl-9 pr-6 text-lg font-bold ring-2 ring-zinc-400 ">
-              <p className=" pb-1">Join Now</p>
+            <Link
+              href="/about"
+              className=" flex items-center justify-center rounded-full bg-gradient-to-tr py-5 pl-7 pr-4 text-lg font-bold ring-2 ring-zinc-400  "
+            >
+              <p className="">Learn More</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -69,7 +72,7 @@ const Hero = () => {
               >
                 <path d="m9 18 6-6-6-6" />
               </svg>
-            </button>
+            </Link>
           </div>
         </div>
         <Image
