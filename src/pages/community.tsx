@@ -11,6 +11,7 @@ type Props = {
   description: string | null;
   topics: string[];
   url: string;
+  language: string;
 };
 
 function ProjectCard({
@@ -21,20 +22,23 @@ function ProjectCard({
   forks,
   url,
   topics,
+  language,
 }: Props) {
   return (
-    <div className=" flex w-full max-w-md flex-col items-start gap-5 rounded-lg bg-zinc-100 px-6 py-8  shadow-xl shadow-zinc-300  ">
+    <div className=" flex w-full max-w-md flex-col items-start gap-5 rounded-lg bg-zinc-100 px-4 py-8  shadow-xl shadow-zinc-300  ">
       <div className="flex items-center justify-start   ">
         <Image
-          className="rounded-full"
+          className="h-20 w-20 rounded-full"
           alt=""
           height={100}
           width={100}
           src={image ?? ""}
         />
-        <div className="pl-5">
-          <h3 className="text-2xl font-bold text-zinc-800">{name}</h3>
-          <div className="flex gap-5 text-lg font-bold text-zinc-500">
+        <div className="space-y-1 pl-5">
+          <h3 className="w-40 overflow-hidden text-clip text-xl font-bold text-zinc-800 sm:w-full md:text-2xl">
+            {name}
+          </h3>
+          <div className="flex gap-5  font-bold text-zinc-500 md:text-lg">
             <div className="flex items-center gap-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -73,6 +77,9 @@ function ProjectCard({
               </svg>
               <p>{forks}</p>
             </div>
+            <p className="rounded-full bg-zinc-400 bg-gradient-to-tr from-blue-500 to-green-500 px-2 py-1 text-xs text-white">
+              {language}
+            </p>
           </div>
         </div>
       </div>
@@ -116,6 +123,7 @@ function Community() {
             topics={project.topics}
             forks={project.forks_count}
             stars={project.stargazers_count}
+            language={project.language}
           />
         ))}
       </div>

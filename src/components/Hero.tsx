@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -10,9 +11,16 @@ const Hero = () => {
 
       <main className="relative mx-auto flex min-h-[80vh] max-w-7xl flex-col items-center p-5 py-8 lg:flex-row 2xl:p-0">
         <div className="flex max-w-3xl flex-col items-center justify-center lg:items-start lg:gap-y-8">
-          <h1 className="bg-gradient-to-tr from-blue-500 to-green-500  bg-clip-text text-center text-5xl font-extrabold leading-tight tracking-tighter text-transparent  antialiased lg:text-left lg:text-7xl">
+          <motion.h1
+            initial={{ opacity: 0, x: -400 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.5,
+            }}
+            className="bg-gradient-to-tr from-blue-500 to-green-500  bg-clip-text text-center text-5xl font-extrabold leading-tight tracking-tighter text-transparent  antialiased lg:text-left lg:text-7xl"
+          >
             Welcome To Google Developer Student Clubs
-          </h1>
+          </motion.h1>
           <h2 className="ld:text-left pt-5 text-center text-xl font-bold tracking-tight text-zinc-700 lg:pt-0 lg:text-2xl">
             Empowering Innovators, Impacting Communities!
           </h2>
@@ -33,46 +41,50 @@ const Hero = () => {
             with open arms.
           </div>
           <div className="flex flex-col items-center gap-4 pt-5 lg:flex-row lg:p-0">
-            <Link
-              href="/joinnow"
-              className="flex items-center justify-center rounded-full bg-gradient-to-tr from-blue-500 to-green-500 py-5 pl-9 pr-6 text-lg font-bold text-white"
-            >
-              <p className="">Join Now</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="lucide lucide-chevron-right"
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}>
+              <Link
+                href="/joinnow"
+                className="flex items-center justify-center rounded-full bg-gradient-to-tr from-blue-500 to-green-500 py-5 pl-9 pr-6 text-lg font-bold text-white"
               >
-                <path d="m9 18 6-6-6-6" />
-              </svg>
-            </Link>
-            <Link
-              href="/about"
-              className=" flex items-center justify-center rounded-full bg-gradient-to-tr py-5 pl-7 pr-4 text-lg font-bold ring-2 ring-zinc-400  "
-            >
-              <p className="">Learn More</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="lucide lucide-chevron-right"
+                <p className="">Join Now</p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  className="lucide lucide-chevron-right"
+                >
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}>
+              <Link
+                href="/about"
+                className=" flex items-center justify-center rounded-full bg-gradient-to-tr py-5 pl-7 pr-4 text-lg font-bold ring-2 ring-zinc-400  "
               >
-                <path d="m9 18 6-6-6-6" />
-              </svg>
-            </Link>
+                <p className="">Learn More</p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  className="lucide lucide-chevron-right"
+                >
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </Link>
+            </motion.div>
           </div>
         </div>
         <Image

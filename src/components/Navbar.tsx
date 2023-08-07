@@ -1,8 +1,8 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-Image;
 
 function Navbar() {
   const router = useRouter();
@@ -56,7 +56,12 @@ function Navbar() {
           )}
         </div>
         {/* linke items */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.5,
+          }}
           className={`absolute left-0 z-40 flex w-full flex-col items-center gap-y-10 bg-white py-16 transition-all duration-300 ease-in md:static md:w-auto   md:flex-row md:items-center md:py-0 ${
             open ? "top-14" : "top-[-490px]"
           }`}
@@ -83,7 +88,7 @@ function Navbar() {
           >
             <p>Register Now</p>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

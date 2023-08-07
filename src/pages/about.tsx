@@ -10,7 +10,7 @@ function GoalCard({
 }) {
   return (
     <div className="h-72 max-w-sm space-y-6 rounded-xl bg-zinc-100 px-7   py-10 shadow-xl md:h-96">
-      <div className="text-xl font-bold lg:text-3xl">{title}</div>
+      <div className="text-xl font-semibold lg:text-3xl">{title}</div>
       <div className="text-sm lg:text-lg">{description}</div>
     </div>
   );
