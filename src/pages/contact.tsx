@@ -25,7 +25,6 @@ function ContactUs() {
     const res = mutation.mutate({
       ...data,
     });
-    console.log(res);
   };
 
   useEffect(() => {
@@ -36,7 +35,9 @@ function ContactUs() {
   }, [mutation.isSuccess]);
   return (
     <div className="flex min-h-[70vh] w-screen flex-col items-center justify-center">
-      <h2 className="p-10 text-center text-5xl text-zinc-600">Contact Us</h2>
+      <h2 className="p-10 text-center text-4xl font-bold  text-zinc-600">
+        CONTACT US
+      </h2>
 
       <div className="flex w-4/5 flex-col items-start justify-center md:flex-row xl:w-3/5">
         <div className=" flex text-zinc-600 md:mt-11">
@@ -53,11 +54,11 @@ function ContactUs() {
               </svg>
 
               <a
-                href="mailto:example@jgec.ac.in?subject=Mail from GDSC Website"
-                // target="_blank"
+                href="mailto:gdscjgec@gmail.com?subject=Mail from GDSC Website"
+                target="_blank"
               >
                 <p className="text-xl">Email</p>
-                <p></p>
+                <p>gdscjgec@gmail.com</p>
               </a>
             </div>
 
@@ -166,7 +167,7 @@ function ContactUs() {
             <button
               disabled={isSubmitting}
               type="submit"
-              className="mt-4 w-full rounded-lg bg-zinc-600 px-5 py-2.5 text-center text-xl font-medium text-white hover:bg-[#1a5171] focus:outline-none focus:ring-4 focus:ring-blue-300 sm:w-auto"
+              className="mt-4 w-full rounded-lg bg-gradient-to-tr from-blue-500 to-green-500 px-5 py-2.5 text-center text-xl font-medium text-white hover:bg-[#1a5171] focus:outline-none focus:ring-4 focus:ring-blue-300 sm:w-auto"
             >
               {!mutation.isLoading ? "Send" : "Sending..."}
             </button>

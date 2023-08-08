@@ -1,3 +1,4 @@
+import { UserButton, useUser } from "@clerk/nextjs";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,7 +6,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 function Navbar() {
-  const router = useRouter();
+  const { isLoaded, user, isSignedIn } = useUser();
   const Links = [
     { name: "HOME", link: "/" },
     { name: "ABOUT", link: "/about" },
@@ -81,13 +82,19 @@ function Navbar() {
               </Link>
             </div>
           ))}
-          <Link
-            href="/sign-up"
-            onClick={() => setOpen((prev) => !prev)}
-            className="rounded-lg bg-gradient-to-tr from-blue-500 to-green-500 px-5 py-3 text-lg font-bold text-white md:ml-12"
-          >
-            <p>Register Now</p>
-          </Link>
+          {!isSignedIn ? (
+            <Link
+              href="/sign-up"
+              onClick={() => setOpen((prev) => !prev)}
+              className="rounded-lg bg-gradient-to-tr from-blue-500 to-green-500 px-5 py-3 text-lg font-bold text-white md:ml-12"
+            >
+              <p>Register Now</p>
+            </Link>
+          ) : (
+            <div className="ml-10">
+              <UserButton />
+            </div>
+          )}
         </motion.div>
       </div>
     </div>

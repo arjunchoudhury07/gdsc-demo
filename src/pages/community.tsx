@@ -77,9 +77,9 @@ function ProjectCard({
               </svg>
               <p>{forks}</p>
             </div>
-            <p className="rounded-full bg-zinc-400 bg-gradient-to-tr from-blue-500 to-green-500 px-2 py-1 text-xs text-white">
-              {language}
-            </p>
+            <div className="flex items-center justify-center rounded-full bg-gradient-to-tr from-blue-500 to-green-500 px-2 text-xs text-white">
+              <p>{language}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -93,15 +93,16 @@ function ProjectCard({
           </div>
         ))}
       </div>
-
-      <p className="text-zinc-600">{description}</p>
-      <Link
-        target="_blank"
-        className="rounded-lg bg-gradient-to-tr from-blue-500 to-green-500 px-5 py-3 font-bold text-white "
-        href={url}
-      >
-        Contribute Now
-      </Link>
+      <div className=" flex h-full flex-col items-start justify-between gap-10">
+        <p className="line-clamp-6 text-zinc-600">{description}</p>
+        <Link
+          target="_blank"
+          className="rounded-lg bg-gradient-to-tr from-blue-500 to-green-500 px-5 py-3 font-bold text-white "
+          href={url}
+        >
+          Contribute Now
+        </Link>
+      </div>
     </div>
   );
 }
@@ -112,7 +113,7 @@ function Community() {
       <h1 className="py-10 text-center text-4xl font-bold tracking-tight text-zinc-700 ">
         COMMUNITY PROJECTS
       </h1>
-      <div className="item-center flex flex-col flex-wrap justify-center gap-10 md:flex-row">
+      <div className="flex flex-col flex-wrap items-stretch justify-center gap-10 md:flex-row">
         {projects.map((project, index) => (
           <ProjectCard
             key={index}

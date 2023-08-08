@@ -17,7 +17,7 @@ const Hero = () => {
             transition={{
               duration: 0.5,
             }}
-            className="bg-gradient-to-tr from-blue-500 to-green-500  bg-clip-text text-center text-5xl font-extrabold leading-tight tracking-tighter text-transparent  antialiased lg:text-left lg:text-7xl"
+            className=" bg-gradient-to-tr from-blue-500 to-green-500  bg-clip-text text-center text-5xl font-extrabold leading-tight tracking-tighter text-transparent antialiased lg:text-left lg:text-7xl"
           >
             Welcome To Google Developer Student Clubs
           </motion.h1>
@@ -36,7 +36,7 @@ const Hero = () => {
             Join us on an extraordinary journey of learning, collaboration, and
             making a difference. Discover a wealth of resources, workshops, and
             events designed to sharpen your technical prowess and cultivate your
-            creativity. Whether you`&apos;`re a coding enthusiast, aspiring
+            creativity. Whether you&apos;re a coding enthusiast, aspiring
             entrepreneur, or a social impact advocate, GDSC JGEC welcomes you
             with open arms.
           </div>
